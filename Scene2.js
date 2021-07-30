@@ -69,15 +69,17 @@ class Scene2 extends Phaser.Scene {
         
         // colisión                                 //otra coma da otra acción
         this.physics.add.collider(player, plataform); 
-        this.physics.add.collider(player, inflador);
-        this.physics.add.collider(player, pinches);
+        //this.physics.add.collider(player, inflador);
+        //this.physics.add.collider(player, pinches);
 
         //no funciona tampoco nose porque
         this.physics.add.overlap(player, inflador, this.collectIflador, null, this);
+        this.physics.add.overlap(player, pinches, this.pinchaso, null, this);
 
         }
         // fijate esto anda a saber 
         collectIflador(_player, inflador){
+            console.log ("entro") 
             inflador.disableBody(true, true)
         }
         pinchaso(player, pinches){
